@@ -1,0 +1,6 @@
+<template name="navbarItem">
+  <view class="navbar-item">
+    <image class="navbar-img" src="{{(imgBasePath && (imgBasePath + (imagePath && imagePath.imagePath))) || imagePath}}" mode="widthFix" />
+    <view class='navbar-title'>{{linkName}}</view>
+  </view>
+</template>

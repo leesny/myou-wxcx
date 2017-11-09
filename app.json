@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/start/index",
+    "pages/cart/index",
+    "pages/classify/index",
+    "pages/shop/index",
+    "pages/goods/index",
+    "pages/search/index",
+    "pages/login/index",
+    "pages/order/index",
+    "pages/address/index",
+    "pages/user/index",
+    "pages/about/index"
+  ],
+  "window":
+  {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1B1B1F",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "跨境商城"
+  },
+
+  "tabBar":
+  {
+    "borderStyle": "white",
+    "color": "#484C62",
+    "selectedColor": "#E60012",
+    "list": [
+    {
+      "iconPath": "static/images/icon/tab_home_gray.png",
+      "selectedIconPath": "static/images/icon/tab_home_red@1x.png",
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    },
+    {
+      "iconPath": "static/images/icon/tab_kind_gray@1x.png",
+      "selectedIconPath": "static/images/icon/tab_kind_red@1x.png",
+      "pagePath": "pages/classify/index",
+      "text": "分类"
+    },
+    {
+      "iconPath": "static/images/icon/tab_shop_open@1x.png",
+      "selectedIconPath": "static/images/icon/tab_shop_open@1x.png",
+      "pagePath": "pages/shop/index",
+      "text": "我要开店"
+    },
+    {
+      "iconPath": "static/images/icon/tab_shopping_gray@1x.png",
+      "selectedIconPath": "static/images/icon/tab_shopping_gray@1x.png",
+      "pagePath": "pages/cart/index",
+      "text": "购物车"
+    },
+    {
+      "iconPath": "static/images/icon/tab_personal_gray@1x.png",
+      "selectedIconPath": "static/images/icon/tab_personal_red.png",
+      "pagePath": "pages/user/index",
+      "text": "我的"
+    }]
+  },
+  "networkTimeout":
+  {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
