@@ -1,0 +1,13 @@
+.no-more {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 298rpx;
+  width: 750rpx;
+}
+
+.no-more image {
+  width: 750rpx;
+  height: 298rpx;
+}

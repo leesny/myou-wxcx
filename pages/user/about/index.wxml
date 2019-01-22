@@ -1,0 +1,40 @@
+<view class="container">
+  <!-- 公司logo  -->
+  <view class="about-base">
+    <image mode="aspectFit" class="about-logo" src="{{entInfo.logoPath}}" />
+    <text>{{entInfo.fullName}}</text>
+  </view>
+  
+  <!-- 公司信息  -->
+  <view class='about-list'>
+    <view class=''>公司简介</view>
+    <view class='desc'>{{entInfo.entIntro || "暂无"}}</view>
+  </view>
+  <view class='about-list  flex-row'data-index="2">
+    <view>官方网站</view>
+    <view class='flex-item about-phone' bindtap="copyWebSite">{{entInfo.webSite || ''}}</view>
+  </view>
+  <view class='about-list flex-row' data-index="1" data-path="{{entInfo.telPhone}}" bindtap="navigateTo">
+    <view>客服电话</view>
+    <view class='flex-item about-phone'>{{entInfo.telPhone || ''}}</view>
+  </view>
+
+  <!-- canvas  -->
+  <view class="share-canvas-box">
+    <canvas canvas-id="shareCanvas" class="share-box"/>
+  </view>
+
+  <!-- canvas 转图片显示  -->
+  <view class="share-show-mask" wx:if="{{showShareImg}}" bindtap="onHideShareBox"></view>
+  <view class="share-show-box" wx:if="{{showShareImg}}">
+    <image class="share-img" src="{{shareImgSrc}}"></image>
+    <view class="save-confirm-btn" bindtap="onSaveBtnTap">保存至相册</view>
+  </view>
+  
+  <!-- 操作按钮  -->
+  <view class="btn-box" hidden="{{showShareImg}}">
+    <view class="save-btn" bindtap="onCanvasToFile">生成分享图</view>
+    <button class="send-btn" open-type="share">发送给好友</button>
+  </view>
+
+</view>

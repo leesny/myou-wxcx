@@ -1,0 +1,130 @@
+.container {
+  color: rgb(34, 24, 21);
+  background-color: #fff;
+}
+
+.about-base {
+  padding: 75rpx 0;
+  border-bottom: 1px solid #efefef;
+  text-align: center;
+}
+
+.about-base image {
+  margin: 0 auto 20rpx;
+  display: block;
+}
+
+.about-base .about-logo {
+  height: 96rpx;
+}
+
+.about-base .about-name {
+  height: 41rpx;
+  margin-top: 41rpx;
+}
+
+.about-list {
+  padding: 25rpx 30rpx;
+  border-bottom: 1px solid #efefef;
+}
+
+.about-list:last-child {
+  border-bottom: 0;
+}
+
+.about-list .desc {
+  margin-top: 15rpx;
+  font-size: 12px;
+  color: #666;
+  text-align: justify;
+  word-break: break-all;
+  height: 350rpx;
+  overflow-y:auto;
+}
+
+.about-list .about-phone {
+  padding-right: 30rpx;
+  text-align: right;
+  font-size: 17px;
+  color: #888;
+}
+
+.btn-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 98rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 20rpx;
+}
+
+.btn-box .save-btn, .btn-box .send-btn {
+  margin: 0 auto;
+  height: 98rpx;
+  line-height: 98rpx;
+  width: 300rpx;
+  background: #212121;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.share-box {
+  width: 600px;
+  height: 850px;
+}
+
+.share-show-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(34, 24, 21, 0.3);
+}
+
+.share-show-box {
+  position: fixed;
+  top: 60rpx;
+  left: 75rpx;
+  z-index: 9999;
+  width: 600rpx;
+  height: 928rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-show-box .share-img {
+  background-color: #212121;
+  text-align: center;
+  width: 600rpx;
+  height: 850rpx;
+  border-radius: 5rpx;
+  border: 5rpx dotted #73bac4;
+}
+
+.share-show-box .save-confirm-btn {
+  width: 400rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: #73bac4;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+}
+
+.share-canvas-box {
+  position: fixed;
+  top: 999999rpx;
+  left: 0;
+  width:100%;
+  height: auto;
+  display:flex;
+  justify-content: center;
+}

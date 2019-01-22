@@ -1,0 +1,5 @@
+<template name="noMoreTpl">
+  <view class="no-more">
+    <image src="/static/images/default/no-more.png" />
+  </view>
+</template>

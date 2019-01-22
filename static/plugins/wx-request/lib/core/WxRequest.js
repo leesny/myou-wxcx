@@ -86,6 +86,8 @@ class WxRequest {
             ],
             // 基于响应状态返回成功或失败
             validateStatus: status => status >= 200 && status < 300,
+            showLoading:false,
+            showError:true
         }
 
         // 合并参数
@@ -165,6 +167,8 @@ class WxRequest {
             header: defaults.header,
             method: defaults.method,
             dataType: defaults.dataType,
+            showLoading: defaults.showLoading,
+            showError: defaults.showError
         }
 
         // 配置请求路径 prefix

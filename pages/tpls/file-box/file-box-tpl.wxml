@@ -1,0 +1,17 @@
+<template name="fileBoxTpl">
+  <view class='file'>
+    <view class='file-total'>
+      <text>附件：</text>
+      <text class="total-num">共{{fileInfos.length}}个</text>
+      <!-- <view class="save-button" bindtap="onFileDownTap">保存到本地</view> -->
+    </view>
+    <view class='file-list'>
+      <block wx:for="{{fileInfos}}" wx:key="{{index}}" >
+        <view class='file-item' bindtap="previewFile" data-path="{{item.filePath}}" id="{{item.fileId}}">
+          <image class="file-icon" src="{{item.thumbPath}}" mode="aspectFill" />
+          <text class="file-name">{{item.fileName}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

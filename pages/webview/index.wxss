@@ -1,0 +1,17 @@
+/* pages/webview/index.wxss */
+.web-view{
+  padding: 20rpx;
+  background: #fff;
+  height: 100%;
+}
+.web-view .url{
+  color: #212121;
+}
+.web-view .tips{
+  font-size: 12px;
+  color: #888888;
+  margin-top: 25rpx;
+}
+.web-view .copy-btn{
+  text-align: right;
+}

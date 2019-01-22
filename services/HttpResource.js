@@ -1,5 +1,9 @@
 import __config from '../config/config'
+import utils from '../utils/index'
 import WxResource from '../static/plugins/wx-resource/lib/index'
+let showError = true;
+let showLoading = false;
+let App = getApp();
 
 class HttpResource {
   constructor(url, paramDefaults, actions, options) {
@@ -15,7 +19,6 @@ class HttpResource {
    * 返回实例对象
    */
   init() {
-    console.log('init....', url, paramDefaults, actions, options);
     const resource = new WxResource(this.setUrl(this.url), this.paramDefaults, this.actions, this.options)
     resource.interceptors.use(this.setInterceptors())
     return resource
@@ -26,7 +29,7 @@ class HttpResource {
    */
   setUrl(url) {
     if (url.indexOf('http') !== -1) return url;
-    return `${__config.basePath}${url}`
+    return `${__config.API_BASE}${url}`
   }
 
   /**
@@ -37,32 +40,117 @@ class HttpResource {
       request(request) {
         request.header = request.header || {}
         request.header['content-type'] = __config.reqContentType || 'application/json';
-        if (request.url.indexOf('/api') !== -1 && wx.getStorageSync('token')) {
-          request.header.Authorization = 'Bearer ' + wx.getStorageSync('token')
+        if (request.url.indexOf('/oa') !== -1) {
+          let token = wx.getStorageSync("token");
+          console.log('token>>>>', token);
+          token && (request.header.token = wx.getStorageSync('token'));
         }
-        wx.showLoading({
-          title: '加载中',
-        })
+        if (request.showLoading) {
+          wx.showLoading({
+            title: '加载中',
+          });
+        }
 
-        console.log('>>>>>>>>>>>request', request);
+        showLoading = request.showLoading;
+        showError = request.showError;
+
         return request
       },
       requestError(requestError) {
-        wx.hideLoading()
+        if (showLoading) {
+          wx.hideLoading();
+        }
         return Promise.reject(requestError)
       },
       response(response) {
-        wx.hideLoading()
-        if (response.statusCode === 401) {
-          wx.removeStorageSync('token')
-          wx.redirectTo({
-            url: '/pages/login/index'
-          })
+        if (showLoading) {
+          wx.hideLoading();
         }
+
+        console.log('HttpService response >>> ', response);
+        if (response.statusCode == 200 && response.data && response.data.code === 0) {
+          return response.data;
+        }
+
+        if (response.statusCode === 401 || !response.data || response.data.code != 0) {
+          //业务错误处理
+          let code = response.data.code;
+          let errMsg = response.data.message || "请求出错了";
+          switch (parseInt(code)) {
+            case 1:
+              //记录最后一次访问的页面
+              let lastPageUrl = utils.getCurrentPageUrlWithArgs();
+              if (showError) {
+                // 弹窗提示单例，防止多次重复提示
+                wx.showModal({
+                  title: '哎呦……',
+                  content: '您登录已失效，请重新登录！',
+                  showCancel: true,
+                  success: function (res) {
+                    modalOpened = false;
+                    if (res.confirm) {
+                      wx.redirectTo({
+                        url: '/pages/auth/bind/index?redirect=' + encodeURIComponent(lastPageUrl),
+                      })
+
+                    } else if (res.cancel) {
+                      wx.hideNavigationBarLoading() //完成导航加载
+                    }
+                  },
+                })
+              }
+              break;
+            case 2:
+              showError && wx.showModal({
+                content: errMsg,
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) { }
+                }
+              });
+
+              //跳转到未授权提示页面
+              // wx.navigateTo({
+              //   url: '/auth/noauth',
+              // });
+              break;
+            case -1:
+            case 3:
+              showError && wx.showModal({
+                content: errMsg,
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) { }
+                }
+              });
+
+              break;
+            default:
+              showError && wx.showModal({
+                content: errMsg,
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) { }
+                }
+              });
+              break;
+          }
+
+          return Promise.reject(response);
+        }
+
         return response
       },
       responseError(responseError) {
-        wx.hideLoading()
+        if (showLoading) {
+          wx.hideLoading()
+        }
+
+        let message = utils.getRequestErrorMessage(responseError);
+        showError && wx.showModal({
+          title: '提示',
+          content: message,
+        });
         return Promise.reject(responseError)
       },
     }

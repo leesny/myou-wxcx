@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "canvas drawer 多图绘制",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "canvasdrawer": "/components/canvas-drawer/canvasdrawer"
+  }
+}

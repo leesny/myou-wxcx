@@ -1,0 +1,52 @@
+.container {
+  color: rgb(34, 24, 21);
+  background-color: #fff;
+}
+.tech-base{
+  padding: 75rpx 0;
+  border-bottom: 1px solid #efefef;
+  text-align: center;
+}
+.tech-base image{
+  margin: 0 auto;
+  display: block;
+}
+.tech-base .tech-logo{
+  width: 295rpx;
+  height: 68rpx;
+}
+.tech-base .tech-name{
+  margin-top: 41rpx;
+  font-size: 12px;
+  color: #3F3F3F;
+}
+.tech-base .tech-name .server{
+  margin-left: 15rpx;
+  color: #999999;
+}
+.tech-tBox{
+  padding: 23rpx 30rpx;
+  background: #F1F1F1;
+}
+.tech-title{
+  font-size: 14px;
+  color: #888888;
+}
+.tech-button{
+  text-align: right;
+}
+.tech-button button{
+  display: inline-block;
+  height: auto;
+  color: #F95810;
+  font-size: 16px;
+  background: none;
+  line-height: 1;
+}
+.tech-section{
+  padding: 22rpx 30rpx;
+}
+.tech-section textarea{
+  width: 100%;
+  min-height: 350rpx;
+}

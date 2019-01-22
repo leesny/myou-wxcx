@@ -1,0 +1,12 @@
+<!--pages/about/index.wxml-->
+<form class='feedback-container flex-column' bindsubmit='feedbackSubmit'>
+  <text>您有什么想说的呢？</text>
+  <view class='content-box' style='border:solid 2px #DBDBDB;margin-top:24rpx;'>
+    <textarea focus='true' class="content-textarea" name='suggest' placeholder="请输入您的想说的" placeholder-style="color:pray;" />
+  </view>
+  <view>
+    <input type='number' name='relaPhone' class='mobile-input' placeholder='联系方式: 手机号' maxlength='11'></input>
+  </view>
+  
+  <button formType='submit' class='feedback-submit'>提交</button>
+</form>

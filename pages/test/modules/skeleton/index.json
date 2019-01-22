@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "skeleton": "/components/skeleton/skeleton",
+    "component-tag-name": "/components/component-tag-name/component-tag-name"
+  }
+}

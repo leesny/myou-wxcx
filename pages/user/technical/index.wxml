@@ -1,0 +1,21 @@
+<view class="container">
+  <!-- 公司信息  -->
+  <view class="tech-base">
+    <image mode="aspectFit" class="tech-logo" src="../../../static/images/default/simpleway_logo@2x.png" />
+    <view class="tech-name">
+      <text class='name'>重庆圣卜威科技有限公司</text>
+      <text class='server'>提供技术支持</text>
+    </view>
+  </view>
+  <form bindsubmit="bindFormSubmit">
+    <view class='flex-row tech-tBox'>
+      <view class="tech-title flex-item">问题反馈</view>
+      <view class="tech-button flex-item">
+        <button form-type="submit"> 提交 </button>
+      </view>
+    </view>
+    <view class="tech-section">
+      <textarea auto-height="true" name="msgDetail" placeholder="可输入问题描述，或吐槽一下..." value="{{msgDetail}}"/>
+    </view>
+  </form>
+</view>

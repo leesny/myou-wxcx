@@ -1,0 +1,104 @@
+/* free布局  */
+.app-box{
+  width:100%;
+  height: 100%;
+  display: flex;
+  display: -webkit-box; /* mate8 支持 */
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start
+}
+
+.app-box .app-item{
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  width:25%;
+  height: 200rpx;
+  margin-top:60rpx;
+  font-size:32rpx;
+  display: flex;
+  display: -webkit-box; /* mate8 支持 */
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.app-box .app-item .app-icon{
+  width:120rpx;
+  height: 120rpx;
+  margin:20rpx auto 0;
+}
+
+.app-box .app-item .app-name{
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.app-box .app-item .app-tip{
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  background-color:red;
+  color:#fff;
+  width:40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 50%;
+  font-size: 24rpx;
+}
+
+/* 九宫格 */
+.app-box.grid {
+  width: 100%;
+  height: auto;
+  /* display: grid; */
+  border-left: 1px solid #efefef;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row;
+  border-right: 0;
+  border-bottom: 0
+}
+
+.app-box.grid .app-item {
+  color: #000;
+  border: 1px solid red;
+  border-top: 0;
+  border-left: 0;
+  background-color: #fff;
+}
+ .app-box.grid .app-item{
+  height: 250rpx;
+  width: 33.3%;
+  /* min-width:250rpx;
+  max-width: 33.333333333%; */
+  margin-top:0;
+  border-bottom: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+  background-color: #fff;
+} 
+
+.app-box.grid .app-item .app-tip{
+  top:20rpx;
+  right: 20rpx;
+}
+
+/* 分组列表  */
+.app-box.group {
+  background-color:#fff;
+}
+
+.app-box.group .app-item{
+  margin-top:0;
+}
+
+.app-box.group .split-box{
+  height: 18rpx;
+  width:100%;
+  background-color: #F5F7F9;
+}

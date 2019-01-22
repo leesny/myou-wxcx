@@ -2,26 +2,41 @@
 const apiHub = {
   //开发环境
   dev: {
-    HOST_IP: 'http://test.simpleway.com.cn',
-    CALL_PATH: '/cbmall-call',
-    INVOKE_PATH: '/jsoncall/directCall/invoke',
-    CONTEXT_PATH: '/'
+    // API_BASE:'https://leetia.com/oa',
+    // FILE_UPLOAD_URL:'https://leetia.com/oa/upload',
+    // FILE_DOWNLOAD_URL:'https://leetia.com/oa/dlfile',
+
+    API_BASE: 'http://oatest.simpleway.com.cn/oa',
+    FILE_UPLOAD_URL: 'http://oatest.simpleway.com.cn/oa/upload',
+    FILE_DOWNLOAD_URL: 'http://oatest.simpleway.com.cn/oa/dlfile',
+    OSS_CONFIG:{
+      ACCESSID: 'LTAIwtIcT7dIRKmC',
+      ACCESSKEY: 'f1FIBfId6ASqKmLuioQ4wMlFV5876T1'
+    }
   },
 
   //测试环境
   test: {
-    HOST_IP: 'http://test.simpleway.com.cn',
-    CALL_PATH: '/cbmall-call',
-    INVOKE_PATH: '/jsoncall/directCall/invoke',
-    CONTEXT_PATH: '/'
+    API_BASE: 'https://sharetable.oneplacelife.com/oa',
+    FILE_UPLOAD_URL: 'https://sharetable.oneplacelife.com/oa/upload',
+    FILE_DOWNLOAD_URL: 'https://sharetable.oneplacelife.com/oa/dlfile',
+
+    OSS_CONFIG: {
+      ACCESSID: 'LTAIwtIcT7dIRKmC',
+      ACCESSKEY: 'f1FIBfId6ASqKmLuioQ4wMlFV5876T1'
+    }
   },
 
   //生产环境
   prod: {
-    HOST_IP: 'http://test.simpleway.com.cn',
-    CALL_PATH: '/cbmall-call',
-    INVOKE_PATH: '/jsoncall/directCall/invoke',
-    CONTEXT_PATH: '/'
+    API_BASE: 'https://oa.simpleway.com.cn/oa',
+    FILE_UPLOAD_URL: 'https://oa.simpleway.com.cn/oa/upload',
+    FILE_DOWNLOAD_URL: 'https://oa.simpleway.com.cn/oa/dlfile',
+
+    OSS_CONFIG: {
+      ACCESSID: 'LTAIwtIcT7dIRKmC',
+      ACCESSKEY: 'f1FIBfId6ASqKmLuioQ4wMlFV5876T1'
+    }
   }
 }
 
@@ -30,14 +45,8 @@ const ENV = "dev";
 
 // 导出配置
 export default {
-  //json 或 form-urlencoded
-  reqContentType: 'application/x-www-form-urlencoded', //application/json
-
-  basePath: apiHub[ENV]['HOST_IP'] + apiHub[ENV]['CALL_PATH'] + apiHub[ENV]['INVOKE_PATH'],
-  signKeyPah: apiHub[ENV]['HOST_IP'] + apiHub[ENV]['CALL_PATH'] + "/jsoncall/loginCall/getLoginToken",
-  loginPath: apiHub[ENV]['HOST_IP'] + apiHub[ENV]['CALL_PATH'] + "/jsoncall/loginCall/login",
-  logoutPah: apiHub[ENV]['HOST_IP'] + apiHub[ENV]['CALL_PATH'] + "/jsoncall/loginCall/logout",
-  uploadPath: apiHub[ENV]['HOST_IP'] + apiHub[ENV]['CALL_PATH'] + "/f-ul",
-  imgPath: apiHub[ENV]['HOST_IP'] + apiHub[ENV]['CALL_PATH'] + '/',
-  domain: apiHub[ENV]['HOST_IP']
+  ENV:ENV,
+  ...apiHub[ENV],
+  reqContentType: 'application/json', // 'application/json' 或者 'application/x-www-form-urlencoded'
+  showGlobalLoading: false, //开启全局loading,会每调用一次接口都执行loading
 }

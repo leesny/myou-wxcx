@@ -1,0 +1,41 @@
+
+<!-- 默认为空提示  -->
+<template name='defaultEmpty'>
+		<view class="empty-box">
+      <!-- icon & txt  -->
+		  <image class='empty-icon' mode='aspectFit' src="{{iconPath || '/static/images/default/empty_data_2x.png'}}"></image>
+			<view class='empty-tip'>{{emptyText || '暂无数据'}}</view>
+
+      <!-- button  -->
+		  <navigator hover-class="none" url="{{url || '/pages/home/index'}}" open-type="{{openType || 'switchTab'}}" wx:if="{{btnText}}"> 
+         <button class='btn-text' size="mini">{{btnText || '返回首页'}}</button> 
+      </navigator>
+		</view>
+</template>
+
+<!-- 消息通知为空提示  -->
+<template name='msgEmpty'>
+		<view class="empty-box">
+      <!-- icon & txt  -->
+		  <image class='empty-icon' mode='aspectFit' src="{{iconPath || '/static/images/default/empty_evaluation_2x.png'}}"></image>
+			<view class='empty-tip'>{{emptyText || '暂无数据'}}</view>
+      
+      <!-- button  -->
+		  <navigator hover-class="none" url="{{url}}" open-type="{{openType || 'navigate'}}" wx:if="{{btnText}}"> 
+         <button class='btn-text' size="mini">{{btnText}}</button> 
+      </navigator>
+		</view>
+</template>
+
+<!-- 支持定制为空提示  -->
+<template name='customEmpty'>
+		<view class="empty-box">
+      <!-- icon & txt  -->
+		  <image class='empty-icon' mode='aspectFit' src="{{iconPath}}" wx:if="{{iconPath}}"></image>
+			<view class='empty-tip' wx:if="{{emptyText}}">{{emptyText}}</view>
+      <!-- button  -->
+		  <navigator hover-class="none" url="{{url}}" open-type="{{openType || 'navigate'}}" wx:if="{{btnText}}"> 
+         <button class='btn-text' size="mini">{{btnText}}</button> 
+      </navigator>
+		</view>
+</template>

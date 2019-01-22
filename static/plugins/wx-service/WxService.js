@@ -126,7 +126,7 @@ class WxService {
             'navigateTo',
             'redirectTo',
             'switchTab',
-            // 'navigateBack', 
+            'navigateBack', 
             'reLaunch',
         ]
 

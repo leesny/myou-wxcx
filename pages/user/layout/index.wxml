@@ -1,0 +1,14 @@
+<view class="container flex-column">
+  <!-- title  -->
+  <view class="layout-title">选择首页布局</view>
+
+  <!-- 布局样式选择  -->
+  <view class='layout-lists'>
+    <radio-group bindchange="radioChange">
+      <label class='layout-list' wx:for="{{layoutLists}}" wx:key="{{index}}">
+        <image mode="aspectFit" class="layout-img" src="{{item.path}}" />
+        <view class='layout-radio'><radio checked="{{checked==item.appBoxStyle}}" value="{{item.appBoxStyle}}" />{{item.name}}</view>
+      </label>
+    </radio-group>
+  </view>
+</view>

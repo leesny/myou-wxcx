@@ -1,0 +1,7 @@
+<import src="../tpls/wx-parser/wx-parser.wxml" />
+<view class="article-container">
+  <view class="article-title" wx:if="{{siteContent.contentTitle}}">{{siteContent.contentTitle}}</view>
+  <view class="article-text">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>

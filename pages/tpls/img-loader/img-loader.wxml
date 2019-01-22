@@ -1,0 +1,75 @@
+<template name="img-loader">
+  <image wx:for="{{ imgLoadList }}" wx:key="*this" src="{{ item }}" data-src="{{ item }}" bindload="_imgOnLoad" binderror="_imgOnLoadError" style="width:0;height:0;opacity:0" />
+</template>
+
+
+<!--附件上传  -->
+<template name="attach-upload">
+  <view class="weui-uploader__bd">
+    <view class="weui-uploader__files" id="uploaderFiles">
+      <block wx:for="{{fileInfos}}" wx:key="{{index}}">
+        <!-- 图片显示缩略图 -->
+        <view class="weui-uploader__file" bindtap="previewFile" bindlongpress='deleteFile' id="{{index}}" wx:if='{{item.isImage}}'>
+          <image class="weui-uploader__img" src="{{item.imagePath}}" mode="aspectFill" />
+        </view>
+        <!--其他显示后缀  -->
+        <view class="weui-uploader__file weui-uploader__file_status" bindtap="previewFile" bindlongpress='deleteFile' id="{{index}}" wx:else>
+          <image class="weui-uploader__img" mode="aspectFill" />
+          <view class="weui-uploader__file-content">{{item.fileType}}</view>
+        </view>
+      </block>
+      <view wx:if='{{!isFormEdit && fileInfos && fileInfos.length<=0}}'>暂无附件</view>
+    </view>
+    <view class="weui-uploader__input-box" wx:if='{{isFormEdit}}'>
+      <view class="weui-uploader__input" bindtap="chooseFile"></view>
+    </view>
+  </view>
+
+</template>
+
+<!--附件上传  -->
+<template name="multi-attach-upload">
+  <view class="weui-uploader__bd">
+    <view class="weui-uploader__files" id="uploaderFiles">
+      <block wx:for="{{fileInfos}}" wx:key="{{index}}" wx:if="{{item.attachType==idx}}">
+        <!-- 图片显示缩略图 -->
+        <view class="weui-uploader__file" bindtap="previewFile" bindlongpress='deleteFile' id="{{item.fileId}}" wx:if='{{item.isImage}}'>
+          <image class="weui-uploader__img" src="{{item.imagePath}}" mode="aspectFill" />
+        </view>
+        <!--其他显示后缀  -->
+        <view class="weui-uploader__file weui-uploader__file_status" bindtap="previewFile" bindlongpress='deleteFile' id="{{item.fileId}}" wx:else>
+          <image class="weui-uploader__img" mode="aspectFill" />
+          <view class="weui-uploader__file-content">{{item.fileType}}</view>
+        </view>
+      </block>
+      <!-- <view wx:if="{{!isFormEdit && fileInfos.length<=0}}">暂无附件</view>  -->
+    </view>
+    <view class="weui-uploader__input-box" wx:if='{{isFormEdit}}'>
+      <view class="weui-uploader__input" bindtap="chooseFile" data-idx="{{idx}}"></view>
+    </view>
+  </view>
+
+</template>
+<!--附件上传  -->
+<template name="bid-result-upload">
+  <view class="weui-uploader__bd">
+    <view class="weui-uploader__files" id="uploaderFiles">
+      <block wx:for="{{fileInfos}}" wx:key="{{index}}" wx:if="{{item.attachType==idx}}">
+        <!-- 图片显示缩略图 -->
+        <view class="weui-uploader__file" bindtap="previewFile" bindlongpress='deleteFile' id="{{item.fileId}}" wx:if='{{item.isImage}}'>
+          <image class="weui-uploader__img" src="{{item.imagePath}}" mode="aspectFill" />
+        </view>
+        <!--其他显示后缀  -->
+        <view class="weui-uploader__file weui-uploader__file_status" bindtap="previewFile" bindlongpress='deleteFile' id="{{item.fileId}}" wx:else>
+          <image class="weui-uploader__img" mode="aspectFill" />
+          <view class="weui-uploader__file-content">{{item.fileType}}</view>
+        </view>
+      </block>
+      <!-- <view wx:if="{{!isFormEdit && fileInfos.length<=0}}">暂无附件</view>  -->
+    </view>
+    <view class="weui-uploader__input-box" wx:if='{{isSave}}'>
+      <view class="weui-uploader__input" bindtap="chooseFile" data-idx="{{idx}}"></view>
+    </view>
+  </view>
+
+</template>

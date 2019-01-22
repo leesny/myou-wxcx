@@ -1,67 +1,59 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/start/index",
-    "pages/cart/index",
-    "pages/classify/index",
-    "pages/shop/index",
-    "pages/goods/index",
-    "pages/search/index",
-    "pages/login/index",
-    "pages/order/index",
-    "pages/address/index",
-    "pages/user/index",
-    "pages/about/index"
-  ],
-  "window":
-  {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1B1B1F",
-    "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "跨境商城"
-  },
+    "pages/home/index",
+    "pages/webview/index",
+    "pages/article/index",
+    "pages/help/index",
+    "pages/auth/confirm/index",
+    "pages/auth/bind/index",
+    
+    "pages/user/about/index",
+    "pages/user/personal/index",
+    "pages/user/layout/index",
+    "pages/user/technical/index",
 
-  "tabBar":
-  {
+    "pages/test/modules/skeleton/index",
+    "pages/test/modules/canvasdrawer/single/index",
+    "pages/test/modules/canvasdrawer/multiple/index",
+    "pages/test/modules/dialog/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#212121",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
     "borderStyle": "white",
     "color": "#484C62",
-    "selectedColor": "#E60012",
+    "selectedColor": "#212121",
+    "backgroundColor": "#fff",
     "list": [
-    {
-      "iconPath": "static/images/icon/tab_home_gray.png",
-      "selectedIconPath": "static/images/icon/tab_home_red@1x.png",
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    },
-    {
-      "iconPath": "static/images/icon/tab_kind_gray@1x.png",
-      "selectedIconPath": "static/images/icon/tab_kind_red@1x.png",
-      "pagePath": "pages/classify/index",
-      "text": "分类"
-    },
-    {
-      "iconPath": "static/images/icon/tab_shop_open@1x.png",
-      "selectedIconPath": "static/images/icon/tab_shop_open@1x.png",
-      "pagePath": "pages/shop/index",
-      "text": "我要开店"
-    },
-    {
-      "iconPath": "static/images/icon/tab_shopping_gray@1x.png",
-      "selectedIconPath": "static/images/icon/tab_shopping_gray@1x.png",
-      "pagePath": "pages/cart/index",
-      "text": "购物车"
-    },
-    {
-      "iconPath": "static/images/icon/tab_personal_gray@1x.png",
-      "selectedIconPath": "static/images/icon/tab_personal_red.png",
-      "pagePath": "pages/user/index",
-      "text": "我的"
-    }]
+      {
+        "iconPath": "static/images/icon/main_home_default_2x.png",
+        "selectedIconPath": "static/images/icon/main_home_pressed2_2x.png",
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "static/images/icon/tab_Internal_notice_2x.png",
+        "selectedIconPath": "static/images/icon/tab_Internal_notice_pressed_2x.png",
+        "pagePath": "pages/help/index",
+        "text": "吐槽"
+      },
+      {
+        "iconPath": "static/images/icon/main_user_default_2x.png",
+        "selectedIconPath": "static/images/icon/main_user_pressed2_2x.png",
+        "pagePath": "pages/user/personal/index",
+        "text": "我的"
+      }
+    ]
   },
-  "networkTimeout":
-  {
+  "networkTimeout": {
     "request": 10000,
-    "downloadFile": 10000
+    "connectSocket": 10000,
+    "uploadFile": 30000,
+    "downloadFile": 600000
   },
   "debug": true
 }

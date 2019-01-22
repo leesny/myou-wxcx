@@ -1,0 +1,11 @@
+<!-- <web-view src="{{url}}"></web-view> -->
+
+<view class='web-view'>
+  <view class='flex-row'>
+    <view class='flex-item'>官网地址</view>
+    <view class='flex-item url copy-btn' bindtap='copyUrl'>复制地址</view>
+  </view>
+  
+  <text class='url' selectable="true">{{url}}</text>
+  <view class='tips'>提示:复制链接在手机浏览器上打开。</view>
+</view>

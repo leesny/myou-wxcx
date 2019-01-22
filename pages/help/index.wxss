@@ -1,0 +1,32 @@
+/* pages/about/index.wxss */
+
+.feedback-container{
+  padding: 24rpx;
+}
+
+input{
+  margin-top: 24rpx;
+  border: solid 2px #DBDBDB;
+}
+
+.content-box{
+  height: 350rpx;
+}
+
+.content-textarea {
+  width: 100%;
+  height:100%;
+  text-indent: 5px;
+}
+
+.mobile-input{
+  padding: 10rpx 24rpx;
+}
+
+.feedback-submit{
+   margin-top: 50rpx;
+   color: white;
+   background-color: #DD5A5C;
+   line-height: 1;
+   padding: 20rpx;
+}

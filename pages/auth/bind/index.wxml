@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/static/images/default/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <image class="logo" src="/static/images/default/logo-bai.png"></image>
+    <view class="content">
+      <view class="user-box" style="transform:rotateZ({{angle}}deg);">
+          <image class="avatar" src="{{avatarUrl || '/static/images/temp/avatar.jpg'}}"></image>
+          <image class="wave" src="/static/images/default/wave.png" mode="aspectFill"></image>
+          <image class="wave wave-bg" src="/static/images/default/wave.png" mode="aspectFill"></image>
+      </view>
+      <form bindsubmit="formSubmit">
+        <view class="account-box">
+            <view class="account-item login-code {{logincode_focus ? 'account-item-border': ''}}">
+              <view>账号<text class="label-split">|</text></view>
+              <input id="login-code" name="loginCode" type="text" placeholder="请输入账号" bindfocus='onInputFocus' bindblur='onInputBlur' value="{{loginCode}}"/>
+            </view>
+            <view class="account-item login-pwd {{loginpwd_focus ? 'account-item-border': ''}}">
+              <view>密码<text class="label-split">|</text></view>
+              <input id="login-pwd" name="loginPwd" type="password" placeholder="请输入密码" bindfocus='onInputFocus' bindblur='onInputBlur' value="{{loginPwd}}"/>
+            </view>
+            <view class="confirm-btn">
+                <button class="confirm-text" formType="submit">确认绑定</button>
+            </view> 
+        </view>
+      </form> 
+      <view class="copyright">
+          <view class='copyright-content'>
+            <image class="tach-logo" src="/static/images/default/tach-logo.jpg"></image>
+            <view class="tach-company">圣卜威技术支持</view>
+          </view>
+      </view>
+    </view>
+  </block>
+</view>

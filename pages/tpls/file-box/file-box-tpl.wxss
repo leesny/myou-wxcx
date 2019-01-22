@@ -1,0 +1,45 @@
+/* 附件  */
+/* 附件区域  */
+.file {
+  margin-top:20rpx;
+  padding:20rpx 0;
+}
+
+.file .file-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.file-total .total-num{
+  color:#b2b2b2;
+}
+
+.file-total .save-button{
+  border:1px solid #212121;
+  padding:4px 8px;
+  font-size:26rpx;
+  color:#212121;
+}
+
+.file .file-list {
+  margin-top:20rpx;
+}
+
+.file-list .file-item {
+  display:flex;
+  align-items: center;
+  min-height:50rpx;
+  margin-bottom:10rpx;
+}
+
+.file-item .file-icon{
+  width:40rpx;
+  height: 40rpx;
+}
+
+.file-item .file-name{
+  margin-left:10rpx;
+  font-size:28rpx;
+  overflow: hidden;
+}

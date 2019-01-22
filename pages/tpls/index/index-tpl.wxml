@@ -1,0 +1,134 @@
+<!-- 首页布局样式-随意  -->
+<template name="app-box-free">
+  <view class="app-box">
+    <navigator class="app-item" hover-class="none" url="/pages/flow/index?state=0">
+        <image class="app-icon" src="/static/images/default/home_tobedone@2x.png"></image>
+        <view class="app-name">我的待办</view>
+        <view class="app-tip" wx:if="{{task > 0}}">{{task}}</view>
+    </navigator>
+    
+     <navigator class="app-item" hover-class="none" url="/pages/flow/index?state=2">
+        <image class="app-icon" src="/static/images/default/home_myapplication@2x.png"></image>
+        <view class="app-name">我的请求</view>
+    </navigator>
+
+     <navigator class="app-item"  hover-class="none" url="/pages/flow/index?state=1">
+        <image class="app-icon" src="/static/images/default/home_havedone@2x.png"></image>
+        <view class="app-name">已办流程</view>
+    </navigator>
+
+     <navigator class="app-item"  hover-class="none" url="/pages/flow/new/index">
+        <image class="app-icon" src="/static/images/default/home_initiateflows@2x.png"></image>
+        <view class="app-name">发起流程</view>
+    </navigator>
+
+     <navigator class="app-item" hover-class="none" url="/pages/message/list/index">
+        <image class="app-icon" src="/static/images/default/home_unread@2x.png"></image>
+        <view class="app-name">未阅寻呼</view>
+        <view class="app-tip" wx:if="{{msg>0}}">{{msg}}</view>
+    </navigator>
+
+    <navigator class="app-item" hover-class="none" url="/pages/message/publish/index">
+        <image class="app-icon" src="/static/images/default/home_initiatecall@2x.png"></image>
+        <view class="app-name">发起寻呼</view>
+    </navigator>
+
+     <navigator class="app-item" hover-class="none" url="/pages/contact/index?contact=1">
+        <image class="app-icon" src="/static/images/default/home_addresslist@2x.png"></image>
+        <view class="app-name">通讯录</view>
+    </navigator>
+  </view>
+</template>
+
+<!-- 首页布局样式-分组  -->
+<template name="app-box-group">
+  <view class="app-box group">
+    <!-- 行1  -->
+    <navigator class="app-item" hover-class="none" url="/pages/flow/index?state=0">
+        <image class="app-icon" src="/static/images/default/home_tobedone@2x.png"></image>
+        <view class="app-name">我的待办</view>
+        <view class="app-tip" wx:if="{{task > 0}}">{{task}}</view>
+    </navigator>
+
+    <navigator class="app-item" hover-class="none" url="/pages/flow/index?state=2">
+        <image class="app-icon" src="/static/images/default/home_myapplication@2x.png"></image>
+        <view class="app-name">我的请求</view>
+    </navigator>
+
+     <navigator class="app-item" hover-class="none" url="/pages/flow/new/index">
+        <image class="app-icon" src="/static/images/default/home_initiateflows@2x.png"></image>
+        <view class="app-name">发起流程</view>
+    </navigator>
+
+    <navigator class="app-item" hover-class="none" url="/pages/flow/index?state=1">
+        <image class="app-icon" src="/static/images/default/home_havedone@2x.png"></image>
+        <view class="app-name">已办流程</view>
+    </navigator>
+
+    <view class="split-box"></view>
+
+    <!-- 行2  -->
+     <navigator class="app-item"  hover-class="none" url="/pages/message/list/index">
+        <image class="app-icon" src="/static/images/default/home_unread@2x.png"></image>
+        <view class="app-name">未阅寻呼</view>
+        <view class="app-tip" wx:if="{{msg>0}}">{{msg}}</view>
+    </navigator>
+
+     <navigator class="app-item" hover-class="none" url="/pages/message/publish/index">
+        <image class="app-icon" src="/static/images/default/home_initiatecall@2x.png"></image>
+        <view class="app-name">发起寻呼</view>
+    </navigator>
+
+    <view class="split-box"></view>
+
+    <!-- 行3  -->
+     <navigator class="app-item"  hover-class="none" url="/pages/contact/index?contact=1">
+        <image class="app-icon" src="/static/images/default/home_addresslist@2x.png"></image>
+        <view class="app-name">通讯录</view>
+    </navigator>
+
+  </view>
+</template>
+
+<!-- 首页布局样式-九宫格  -->
+<template name="app-box-grid">
+  <view class="app-box grid">
+     <navigator class="app-item" hover-class="none" url="/pages/flow/index?state=0">
+        <image class="app-icon" src="/static/images/default/home_tobedone@2x.png"></image>
+        <view class="app-name">我的待办</view>
+        <view class="app-tip" wx:if="{{task > 0}}">{{task}}</view>
+    </navigator>
+
+     <navigator class="app-item"  hover-class="none" url="/pages/flow/index?state=2">
+        <image class="app-icon" src="/static/images/default/home_myapplication@2x.png"></image>
+        <view class="app-name">我的请求</view>
+    </navigator>
+
+     <navigator class="app-item" hover-class="none" url="/pages/flow/new/index">
+        <image class="app-icon" src="/static/images/default/home_initiateflows@2x.png"></image>
+        <view class="app-name">发起流程</view>
+    </navigator>
+
+     <navigator class="app-item" hover-class="none" url="/pages/flow/index?state=1">
+        <image class="app-icon" src="/static/images/default/home_havedone@2x.png"></image>
+        <view class="app-name">已办流程</view>
+    </navigator>
+
+    <navigator class="app-item" hover-class="none" url="/pages/message/list/index">
+        <image class="app-icon" src="/static/images/default/home_unread@2x.png"></image>
+        <view class="app-name">未阅寻呼</view>
+        <view class="app-tip" wx:if="{{msg>0}}">{{msg}}</view>
+    </navigator>
+
+    <navigator class="app-item" hover-class="none" url="/pages/message/publish/index">
+        <image class="app-icon" src="/static/images/default/home_initiatecall@2x.png"></image>
+        <view class="app-name">发起寻呼</view>
+    </navigator>
+
+    <navigator class="app-item"  hover-class="none" url="/pages/contact/index?contact=1">
+        <image class="app-icon" src="/static/images/default/home_addresslist@2x.png"></image>
+        <view class="app-name">通讯录</view>
+    </navigator>
+
+  </view>
+</template>

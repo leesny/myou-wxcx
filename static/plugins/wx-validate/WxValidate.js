@@ -1,5 +1,5 @@
 /**
- * 表单验证
+ * 表单验证： 
  * 
  * @param {Object} rules 验证字段的规则
  * @param {Object} messages 验证字段的提示信息
@@ -70,7 +70,7 @@ class WxValidate {
 			required(value, param) {
 				if (!that.depend(param)) {
 					return 'dependency-mismatch'
-				} else if (typeof value === 'number') {
+        } else if (typeof value === 'number') {
 					value = value.toString()
 				} else if (typeof value === 'boolean') {
 					return !0
@@ -78,6 +78,7 @@ class WxValidate {
 
 				return value.length > 0
 			},
+    
 			/**
 			 * 验证电子邮箱格式
 			 */
@@ -94,7 +95,8 @@ class WxValidate {
 			 * 验证URL格式
 			 */
 			url(value) {
-				return that.optional(value) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value)
+				// return that.optional(value) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value)
+        return that.optional(value) || /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/.test(value)
 			},
 			/**
 			 * 验证日期格式
@@ -301,6 +303,55 @@ class WxValidate {
 		})
 	}
 
+
+  /**
+	 * 验证某个指定字段的规则
+	 * @param {String} param 字段名
+	 * @param {Object} rules 规则
+	 * @param {Object} form 表单数据对象
+	 */
+  checkFormData(param, rules, form) {
+
+    // 缓存表单数据对象
+    this.scope = form
+
+    // 缓存字段对应的值
+    const data = form
+    const value = data[param] || ''
+
+    // 遍历某个指定字段的所有规则，依次验证规则，否则缓存错误信息
+    for (let method in rules) {
+
+      // 判断验证方法是否存在
+      if (this.isValidMethod(method)) {
+
+        // 缓存规则的属性及值
+        const rule = {
+          method: method,
+          parameters: rules[method]
+        }
+
+        // 调用验证方法
+        const result = this.methods[method](value, rule.parameters)
+
+        // 若result返回值为dependency-mismatch，则说明该字段的值为空或非必填字段
+        if (result === 'dependency-mismatch') {
+          continue
+        }
+
+        this.setValue(param, method, result, value)
+
+        // 判断是否通过验证，否则缓存错误信息，跳出循环
+        if (!result) {
+          this.formatTplAndAdd(param, rule, value)
+          break
+        }
+      }
+    }
+  }
+
+
+
 	/**
 	 * 验证某个指定字段的规则
 	 * @param {String} param 字段名
@@ -383,11 +434,12 @@ class WxValidate {
 	 * @param {Object} event 表单数据对象
 	 */
 	checkForm(event) {
+    console.log(this.rules, event)
 		this.__initData()
 
 		for (let param in this.rules) {
 			this.setView(param)
-			this.checkParam(param, this.rules[param], event)
+      this.checkFormData(param, this.rules[param], event)
 		}
 
 		return this.valid()

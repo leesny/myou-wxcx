@@ -1,0 +1,19 @@
+<import src="../tpls/index/index-tpl" />
+
+<view class="container">
+  <view class="loading-custom-box" wx:if="{{isTopLoading}}">
+    <view class="cube cube1"></view>
+    <view class="cube cube2"></view>
+  </view> 
+  <block wx:else>
+    <block wx:if="{{appBoxStyle == 'grid'}}">
+      <template is="app-box-grid" data="{{...msgNum}}" />
+    </block>
+    <block wx:elif="{{appBoxStyle == 'group'}}">
+      <template is="app-box-group" data="{{...msgNum}}" />
+    </block>
+    <block wx:else>
+      <template is="app-box-free" data="{{...msgNum}}" />
+    </block>
+  </block>
+</view>

@@ -1,0 +1,28 @@
+.container{
+  height: 100%;
+  font-size: 14px;
+  color: #666666;
+}
+.layout-title{
+  padding: 30rpx 36rpx;
+}
+.layout-lists{
+  padding: 0 36rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.layout-lists .layout-list{
+  display:inline-block;
+  width: 50%;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.layout-lists .layout-list .layout-img{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 435rpx;
+}
+.layout-lists .layout-list .layout-radio{
+  margin-top: 16rpx;
+}

@@ -1,0 +1,38 @@
+<view class="container flex-column">
+  <!-- 用户信息  -->
+  <view class='flex-item'>
+    <view class="user-info">
+      <view class='user-box'>
+        <!-- <image class="head-img" src="{{bgImgUrl||userInfo.bgImg}}" /> -->
+        <image class="user-avatar" src="{{avatarUrl}}" />
+        <view class='user-name'>
+          <text class="user-title">{{nickName}}</text>
+          <text class='user-desc'>已绑定帐号: {{sysuser.loginCode || "未绑定"}}</text>
+        </view>
+        <view class='flex-row user-text'>
+          <text class='user-desc'>用户名</text>
+          <text class="user-title flex-item">{{sysuser.userName || nickName}}</text>
+        </view>
+        <view class='flex-row user-text'>
+          <text class='user-desc'>所属企业</text>
+          <text class="flex-item user-title">{{sysuser.entName || "暂无"}}</text>
+        </view>
+        <view class='flex-row user-text'>
+          <text class='user-desc'>所属部门</text>
+          <text class="flex-item user-title">{{sysuser.orgName || "暂无"}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 操作列  -->
+    <view class="action-list">
+      <view class="action-cell arrow-right" data-path="/pages/user/layout/index" bindtap="navigateTo">首页布局</view>
+      <view class="action-cell arrow-right" data-path="/pages/user/about/index" data-entId="{{sysuser.entId}}" bindtap="navigateTo">关于我们</view>
+      <view class="action-cell arrow-right" data-path="/pages/user/technical/index" bindtap="navigateTo">技术支持</view>
+    </view>
+  </view>
+
+  <view class="sys-box" >
+    <view class="logout" bindtap="onUnbindTap">解除绑定</view>
+  </view>
+</view>
