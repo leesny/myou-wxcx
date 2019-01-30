@@ -16,7 +16,8 @@
     "pages/test/modules/skeleton/index",
     "pages/test/modules/canvasdrawer/single/index",
     "pages/test/modules/canvasdrawer/multiple/index",
-    "pages/test/modules/dialog/index"
+    "pages/test/modules/dialog/index",
+    "pages/test/modules/addcart-anim/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

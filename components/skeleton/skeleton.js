@@ -38,6 +38,7 @@ Component({
 
 		//绘制背景
 		wx.createSelectorQuery().selectAll(`.${this.data.selector}`).boundingClientRect().exec(function(res){
+      console.log('createSelectorQuery res >>>>', res);
 			that.setData({
 				'systemInfo.height': res[0][0].height + res[0][0].top
 			})
