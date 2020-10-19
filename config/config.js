@@ -6,36 +6,36 @@ const apiHub = {
     // FILE_UPLOAD_URL:'https://leetia.com/oa/upload',
     // FILE_DOWNLOAD_URL:'https://leetia.com/oa/dlfile',
 
-    API_BASE: 'http://oatest.simpleway.com.cn/oa',
-    FILE_UPLOAD_URL: 'http://oatest.simpleway.com.cn/oa/upload',
-    FILE_DOWNLOAD_URL: 'http://oatest.simpleway.com.cn/oa/dlfile',
+    API_BASE: '',
+    FILE_UPLOAD_URL: 'http://oatest.sw.com.cn/oa/upload',
+    FILE_DOWNLOAD_URL: 'http://oatest.sw.com.cn/oa/dlfile',
     OSS_CONFIG:{
-      ACCESSID: 'LTAIwtIcT7dIRKmC',
-      ACCESSKEY: 'f1FIBfId6ASqKmLuioQ4wMlFV5876T1'
+      ACCESSID: '',
+      ACCESSKEY: ''
     }
   },
 
   //测试环境
   test: {
-    API_BASE: 'https://sharetable.oneplacelife.com/oa',
-    FILE_UPLOAD_URL: 'https://sharetable.oneplacelife.com/oa/upload',
-    FILE_DOWNLOAD_URL: 'https://sharetable.oneplacelife.com/oa/dlfile',
+    API_BASE: 'https://sw.oneplacelife.com/oa',
+    FILE_UPLOAD_URL: 'https://sw.oneplacelife.com/oa/upload',
+    FILE_DOWNLOAD_URL: 'https://sw.oneplacelife.com/oa/dlfile',
 
     OSS_CONFIG: {
-      ACCESSID: 'LTAIwtIcT7dIRKmC',
-      ACCESSKEY: 'f1FIBfId6ASqKmLuioQ4wMlFV5876T1'
+      ACCESSID: '',
+      ACCESSKEY: ''
     }
   },
 
   //生产环境
   prod: {
-    API_BASE: 'https://oa.simpleway.com.cn/oa',
-    FILE_UPLOAD_URL: 'https://oa.simpleway.com.cn/oa/upload',
-    FILE_DOWNLOAD_URL: 'https://oa.simpleway.com.cn/oa/dlfile',
+    API_BASE: 'https://oa.sw.com.cn/oa',
+    FILE_UPLOAD_URL: 'https://oa.sw.com.cn/oa/upload',
+    FILE_DOWNLOAD_URL: 'https://oa.sw.com.cn/oa/dlfile',
 
     OSS_CONFIG: {
-      ACCESSID: 'LTAIwtIcT7dIRKmC',
-      ACCESSKEY: 'f1FIBfId6ASqKmLuioQ4wMlFV5876T1'
+      ACCESSID: '',
+      ACCESSKEY: ''
     }
   }
 }
